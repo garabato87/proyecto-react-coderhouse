@@ -1,11 +1,12 @@
+import "./productCard.css";
 
-export const ProductCard = () => {
-
+export const ProductCard = ({ title, price, description, imageUrl }) => {
   return (
-    <div>
-      <h4>Titulo 1</h4>
-      <p>Precio 1 </p>
-      <p>Descripcion 1</p>
+    <div className="product-card">
+      <img src={imageUrl} alt={title} />
+      <h4>{title}</h4>
+      <p>{price} </p>
+      <p>{description}</p>
     </div>
   );
 };

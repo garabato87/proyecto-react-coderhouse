@@ -13,7 +13,7 @@ export let products = [
     id: 2,
     title: "Vegeta",
     price: 200,
-    pictureUrl:
+    imageUrl:
       "https://res.cloudinary.com/dz9deavga/image/upload/v1738852217/VegetaBust1_qfidfj.png",
     stock: 20,
     category: "DBZ",
@@ -23,7 +23,7 @@ export let products = [
     id: 3,
     title: "Luffy",
     price: 300,
-    pictureUrl:
+    imageUrl:
       "https://res.cloudinary.com/dz9deavga/image/upload/v1738852219/Luffy1_it5uog.png",
     stock: 30,
     category: "ONE PIECE",
@@ -33,7 +33,7 @@ export let products = [
     id: 4,
     title: "Law",
     price: 400,
-    pictureUrl:
+    imageUrl:
       "https://res.cloudinary.com/dz9deavga/image/upload/v1738852219/Law3_adqzlp.png",
     stock: 40,
     category: "ONE PIECE",
@@ -43,7 +43,7 @@ export let products = [
     id: 5,
     title: "Shanks",
     price: 500,
-    pictureUrl:
+    imageUrl:
       "https://res.cloudinary.com/dz9deavga/image/upload/v1738852219/Shanks3_xwdiod.png",
     stock: 50,
     category: "ONE PIECE",

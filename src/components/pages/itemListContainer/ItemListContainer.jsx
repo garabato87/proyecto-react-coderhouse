@@ -1,34 +1,47 @@
+import { useState, useEffect } from "react";
 import { ProductCard } from "../../common/productCard/productCard";
 import { products } from "../../../products";
-import { useState } from "react";
+
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
-  const getProduct = new Promise((resolve, reject) => {
-    const isLogged = true;
-    if (isLogged) {
-      setTimeout(() => {
+
+  useEffect(() => {
+    const getProduct = new Promise((resolve, reject) => {
+      const isLogged = true;
+      if (isLogged) {
         resolve(products);
-      }, 2000);
-    } else {
-      reject(new Error("No se pudo traer los productos"));
-    }
-  });
-  getProduct
-    .then((res) => {
-      setItems(res);
-    })
-    .catch((err) => {
-      console.log(err);
+      } else {
+        reject({ statusCode: 400, message: "No se pudo cargar los productos" });
+      }
     });
+
+    getProduct
+      .then((response) => {
+        console.log(response);
+
+        setItems(response);
+      })
+      .catch((err) => {
+        console.log("Se ejecuta el catch");
+        console.error(err);
+      });
+  }, []);
 
   return (
     <>
       <h3>Item List Container</h3>
-      <ProductCard
-        title={items[0].title}
-        price={100}
-        description="Descripcion del producto 1"
-      />
+
+      {items.map((item) => (
+        <ProductCard
+          key={item.id}
+          /* image={item.imageUrl}
+          title={item.title}
+          price={item.price}
+          description={item.description} */
+
+          {...item}
+        />
+      ))}
     </>
   );
 };
