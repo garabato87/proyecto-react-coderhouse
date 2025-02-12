@@ -1,47 +1,36 @@
 import { useState, useEffect } from "react";
 import { ProductCard } from "../../common/productCard/productCard";
-import { products } from "../../../products";
 
+import "./itemListContainer.css";
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const getProduct = new Promise((resolve, reject) => {
-      const isLogged = true;
-      if (isLogged) {
-        resolve(products);
-      } else {
-        reject({ statusCode: 400, message: "No se pudo cargar los productos" });
-      }
-    });
-
-    getProduct
-      .then((response) => {
-        console.log(response);
-
-        setItems(response);
+    fetch("./products.json")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setItems(data); // Asignar los personajes
       })
-      .catch((err) => {
-        console.log("Se ejecuta el catch");
-        console.error(err);
-      });
+      .catch((err) => console.error("Error fetching data:", err));
   }, []);
 
   return (
     <>
       <h3>Item List Container</h3>
-
-      {items.map((item) => (
-        <ProductCard
-          key={item.id}
-          /* image={item.imageUrl}
+      <div className="list-container">
+        {items.map((item) => (
+          <ProductCard
+            key={item.id}
+            /* image={item.imageUrl}
           title={item.title}
           price={item.price}
           description={item.description} */
 
-          {...item}
-        />
-      ))}
+            {...item}
+          />
+        ))}
+      </div>
     </>
   );
 };
