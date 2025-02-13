@@ -26,7 +26,7 @@ const ItemListContainer = () => {
           title={item.title}
           price={item.price}
           description={item.description} */
-
+            id={item.id}
             {...item}
           />
         ))}
