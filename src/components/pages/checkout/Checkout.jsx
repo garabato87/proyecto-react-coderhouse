@@ -13,7 +13,8 @@ const Checkout = () => {
     // console.log(evento.target.value);
     // console.log(evento.target.name);
     const { value, name } = evento.target;
-    console.log(value, name);
+
+    setUserInfo({ ...userInfo, [name]: value });
   };
   return (
     <div>
@@ -37,7 +38,7 @@ const Checkout = () => {
           onChange={capturarDatos}
         />
         <button>Comprar</button>
-      </form>{" "}
+      </form>
     </div>
   );
 };
