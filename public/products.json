@@ -23,7 +23,7 @@
     "price": 300,
     "imageUrl": "https://res.cloudinary.com/dz9deavga/image/upload/v1738852219/Luffy1_it5uog.png",
     "stock": 30,
-    "category": "ONE PIECE",
+    "category": "ONEPIECE",
     "description": "Descripcion del producto 3"
   },
   {
@@ -32,7 +32,7 @@
     "price": 400,
     "imageUrl": "https://res.cloudinary.com/dz9deavga/image/upload/v1738852219/Law3_adqzlp.png",
     "stock": 40,
-    "category": "ONE PIECE",
+    "category": "ONEPIECE",
     "description": "Descripcion del producto 4"
   },
   {
@@ -41,7 +41,7 @@
     "price": 500,
     "imageUrl": "https://res.cloudinary.com/dz9deavga/image/upload/v1738852219/Shanks3_xwdiod.png",
     "stock": 50,
-    "category": "ONE PIECE",
+    "category": "ONEPIECE",
     "description": "Descripcion del producto 5"
   }
 ]

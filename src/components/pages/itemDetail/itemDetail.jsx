@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 const ItemDetail = () => {
   const [item, setItem] = useState({});
-  const x = useParams();
-  console.log(x); // ✅ {id: "1"}
+  const { id } = useParams(); // ⬅️ Extrae directamente el id como una variable
+  console.log(id);
 
   // Simula un ID estático (puede venir de useParams)
 
@@ -11,14 +11,16 @@ const ItemDetail = () => {
     fetch("/products.json")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        let productSelected = data.find(
-          (product) => product.id === Number(x.id)
-        );
-        setItem(productSelected); // Manejo de errores
+        setTimeout(() => {
+          console.log(data);
+          let productSelected = data.find(
+            (product) => product.id === Number(id)
+          );
+          setItem(productSelected); // Manejo de errores
+        }, 1000);
       })
       .catch((err) => console.error("Error fetching data:", err));
-  }, [x.id]); // ✅ Eliminamos `id` de dependencias
+  }, []); // ✅ Eliminamos `id` de dependencias
 
   return (
     <div>

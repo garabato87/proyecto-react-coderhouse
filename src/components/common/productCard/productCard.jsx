@@ -16,7 +16,7 @@ export const ProductCard = ({
       <h4>{title}</h4>
       <p>{price} </p>
       <p>{description}</p>
-      <Link to={`/product/:${id}`}>
+      <Link to={`/product/${id}`}>
         <button>Ver detalles</button>
       </Link>
     </div>
