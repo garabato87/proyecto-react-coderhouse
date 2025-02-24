@@ -5,13 +5,26 @@ const ListContainer = () => {
   const [characters, setCharacters] = useState([]); // Inicializar como array vacío
 
   useEffect(() => {
-    fetch("https://dragonball-api.com/api/characters")
-      .then((response) => response.json())
-      .then((data) => {
+    const getCharacters = async () => {
+      try {
+        const response = await fetch(
+          "https://dragonball-api.com/api/characters"
+        );
+        const data = await response.json();
         console.log(data);
-        setCharacters(data.items); // Asignar los personajes
-      })
-      .catch((err) => console.error("Error fetching data:", err));
+        setCharacters(data.items);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    getCharacters();
+    // // fetch("https://dragonball-api.com/api/characters")
+    // //   .then((response) => response.json())
+    // //   .then((data) => {
+    // //     console.log(data);
+    // //     setCharacters(data.items); // Asignar los personajes
+    // //   })
+    // //   .catch((err) => console.error("Error fetching data:", err));
   }, []);
 
   return (

@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "title": "Goku",
     "price": 100,
     "imageUrl": "https://res.cloudinary.com/dz9deavga/image/upload/v1738852220/Goku1_xrmnww.png",
@@ -9,7 +8,6 @@
     "description": "Descripcion del producto 1"
   },
   {
-    "id": 2,
     "title": "Vegeta",
     "price": 200,
     "imageUrl": "https://res.cloudinary.com/dz9deavga/image/upload/v1738852217/VegetaBust1_qfidfj.png",
@@ -18,7 +16,6 @@
     "description": "Descripcion del producto 2"
   },
   {
-    "id": 3,
     "title": "Luffy",
     "price": 300,
     "imageUrl": "https://res.cloudinary.com/dz9deavga/image/upload/v1738852219/Luffy1_it5uog.png",
@@ -27,7 +24,6 @@
     "description": "Descripcion del producto 3"
   },
   {
-    "id": 4,
     "title": "Law",
     "price": 400,
     "imageUrl": "https://res.cloudinary.com/dz9deavga/image/upload/v1738852219/Law3_adqzlp.png",
@@ -36,7 +32,6 @@
     "description": "Descripcion del producto 4"
   },
   {
-    "id": 5,
     "title": "Shanks",
     "price": 500,
     "imageUrl": "https://res.cloudinary.com/dz9deavga/image/upload/v1738852219/Shanks3_xwdiod.png",

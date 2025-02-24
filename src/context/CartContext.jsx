@@ -9,8 +9,25 @@ export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    let isInCart = cart.some((elem) => elem.id === product.id);
+
+    if (isInCart) {
+      let newCart = cart.map((elem) => {
+        if (elem.id === product.id) {
+          return { ...elem, quantity: elem.quantity + product.quantity };
+        }
+
+        return elem;
+      });
+
+      setCart(newCart);
+      getTotalAmount(); // Llamar después de actualizar el estado
+      alert("Ya está agregado");
+    } else {
+      setCart([...cart, product]);
+    }
   };
+
   const removeCart = () => {
     setCart([]);
   };

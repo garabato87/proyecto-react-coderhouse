@@ -2,13 +2,23 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Counter } from "../../common/counter/Counter";
 import "./itemDetail.css"; // Importar los estilos
+import { db } from "../../../firebaseConfig";
+import { doc, collection, getDoc } from "firebase/firestore";
 
 const ItemDetail = () => {
   const [item, setItem] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
-    fetch("/products.json")
+    //Metodo con base de datos firebase
+    let productsCollection = collection(db, "products");
+    let productRef = doc(productsCollection, id);
+    const getProducts = getDoc(productRef);
+    getProducts
+      .then((doc) => setItem({ ...doc.data(), id: doc.id }))
+      .catch((error) => console.log(error));
+    //Metodo con archivo json
+    /*fetch("/products.json")
       .then((response) => response.json())
       .then((data) => {
         setTimeout(() => {
@@ -18,8 +28,8 @@ const ItemDetail = () => {
           setItem(productSelected);
         }, 500);
       })
-      .catch((err) => console.error("Error fetching data:", err));
-  }, []);
+      .catch((err) => console.error("Error fetching data:", err));*/
+  }, [id]);
 
   return (
     <div className="item-detail-container">

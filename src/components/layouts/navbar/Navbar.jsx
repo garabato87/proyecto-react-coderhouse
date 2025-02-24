@@ -14,7 +14,7 @@ export const Navbar = () => {
           </Link>
 
           <h1>Ecommerce</h1>
-          <Link>Home</Link>
+          <Link to="/">Home</Link>
           <Link to="/category/dbz">DBZ</Link>
           <Link to="/category/onepiece">One Piece</Link>
           <Link>Contacto</Link>
