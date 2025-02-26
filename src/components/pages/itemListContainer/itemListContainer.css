@@ -3,3 +3,21 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-top: 20px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #777;
+}
+
+@media (max-width: 768px) {
+  .list-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}

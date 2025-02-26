@@ -22,8 +22,11 @@ const ItemListContainer = () => {
           );
         }
 
-        const res = await getDocs(consulta);
-        const array = res.docs.map((elem) => ({ ...elem.data(), id: elem.id }));
+        const getProducts = await getDocs(consulta);
+        const array = getProducts.docs.map((elem) => ({
+          ...elem.data(),
+          id: elem.id,
+        }));
 
         setItems(array);
       } catch (error) {
@@ -56,24 +59,33 @@ const ItemListContainer = () => {
     items.forEach(async (item) => {
       await addDoc(produtcsCollection, item);
     });*/
+  //if con return temprano
+  // if (items.length === 0) {
+  //   return <h1>Cargando...</h1>;
+  // }
 
   return (
     <>
       {/*<button onClick={agregarProductos}>Agregar productos al data base</button>*/}
       <h3>Item List Container</h3>
-      <div className="list-container">
-        {items.map((item) => (
-          <ProductCard
-            key={item.id}
-            /* image={item.imageUrl}
+
+      {items.length === 0 ? (
+        <h1>Cargando...</h1>
+      ) : (
+        <div className="list-container">
+          {items.map((item) => (
+            <ProductCard
+              key={item.id}
+              id={item.id}
+              {...item}
+              /* image={item.imageUrl}
           title={item.title}
           price={item.price}
           description={item.description} */
-            id={item.id}
-            {...item}
-          />
-        ))}
-      </div>
+            />
+          ))}
+        </div>
+      )}
     </>
   );
 };

@@ -9,7 +9,9 @@ export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
+    //Devolvemos un true o false si el producto ya está en el carrito
     let isInCart = cart.some((elem) => elem.id === product.id);
+    console.log("Hola", isInCart);
 
     if (isInCart) {
       let newCart = cart.map((elem) => {

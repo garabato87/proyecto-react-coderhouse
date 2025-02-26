@@ -8,6 +8,7 @@ export const ProductCard = ({
   imageUrl,
   image,
   id,
+  stock,
 }) => {
   return (
     <div className="product-card">
@@ -16,6 +17,7 @@ export const ProductCard = ({
       <h4>{title}</h4>
       <p>{price} </p>
       <p>{description}</p>
+      <p>{stock}</p>
       <Link to={`/product/${id}`}>
         <button>Ver detalles</button>
       </Link>

@@ -4,8 +4,9 @@ import { CartContext } from "../../../context/CartContext";
 import "./cart.css";
 
 const Cart = () => {
-  const { cart, removeCart, removeById, getTotalAmount } = useContext(CartContext);
-  
+  const { cart, removeCart, removeById, getTotalAmount } =
+    useContext(CartContext);
+
   let total = getTotalAmount();
 
   return (
@@ -22,13 +23,15 @@ const Cart = () => {
           </div>
         </div>
       ))}
-      <h2>El total a pagar es: {total}</h2>
+      <h2>El total a pagar es: ${total}</h2>
       <button onClick={removeCart} className="empty-cart-button">
         Vaciar carrito
       </button>
-      <Link to="/checkout" className="checkout-button">
-        Finalizar compra
-      </Link>
+      {cart.length > 0 && (
+        <Link to="/checkout" className="checkout-button">
+          Finalizar compra
+        </Link>
+      )}
     </div>
   );
 };

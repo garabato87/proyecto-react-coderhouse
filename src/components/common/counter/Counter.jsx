@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
+import "./counter.css";
 export const Counter = ({ item }) => {
   const [contador, setContador] = useState(1);
   const { addToCart } = useContext(CartContext);
@@ -26,11 +27,17 @@ export const Counter = ({ item }) => {
 
   return (
     <>
-      <div>
-        <button onClick={restar}>Restar</button>
-        <p>Contador : {contador}</p>
-        <button onClick={sumar}>Sumar</button>
-        <button onClick={onAdd}>Agregar al carrito</button>
+      <div className="counter-container">
+        <button className="counter-button" onClick={restar}>
+          Restar
+        </button>
+        <p>Contador: {contador}</p>
+        <button className="counter-button" onClick={sumar}>
+          Sumar
+        </button>
+        <button className="add-to-cart" onClick={onAdd}>
+          Agregar al carrito
+        </button>
       </div>
     </>
   );
