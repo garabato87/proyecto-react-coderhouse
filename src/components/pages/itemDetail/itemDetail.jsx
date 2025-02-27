@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import { Counter } from "../../common/counter/Counter";
 import "./itemDetail.css"; // Importar los estilos
 import { db } from "../../../firebaseConfig";
@@ -16,7 +16,7 @@ const ItemDetail = () => {
     const getProducts = getDoc(productRef);
     getProducts
       .then((doc) => setItem({ ...doc.data(), id: doc.id }))
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
     //Metodo con archivo json
     /*fetch("/products.json")
       .then((response) => response.json())

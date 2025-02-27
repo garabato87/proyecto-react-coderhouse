@@ -1,5 +1,5 @@
 import { IoMdCart } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 import "./CartWidget.css";

@@ -4,7 +4,7 @@ import { Footer } from "./components/layouts/footer/Footer";
 // import { Counter } from "./components/common/counter/Counter";
 // import ListContainer from "./components/pages/itemListContainer/listCharacter";
 import ItemDetail from "./components/pages/itemDetail/itemDetail";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router";
 import Cart from "./components/pages/cart/cart";
 import Checkout from "./components/pages/checkout/Checkout";
 import { CartContextProvider } from "./context/CartContext";

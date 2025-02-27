@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { ProductCard } from "../../common/productCard/productCard";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import "./itemListContainer.css";
 import { db } from "../../../firebaseConfig";
 import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
   const { name } = useParams();
-  console.log(name);
+  
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -40,7 +40,7 @@ const ItemListContainer = () => {
   // fetch("/products.json")
   //   .then((response) => response.json())
   //   .then((data) => {
-  //     console.log(data);
+  //     
   //     if (!name) {
   //       setItems(data); // Asignar los personajes
   //     } else {
@@ -48,7 +48,7 @@ const ItemListContainer = () => {
   //         (elem) => elem.category.toLowerCase() === name
   //       );
   //       setItems(productsFiltered);
-  //       console.log(productsFiltered);
+  //       
   //     }
   //   })
   //  .catch((err) => console.error("Error fetching data:", err));

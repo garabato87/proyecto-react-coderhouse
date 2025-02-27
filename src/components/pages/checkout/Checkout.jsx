@@ -12,7 +12,7 @@ const Checkout = () => {
   });
   const comprar = (evento) => {
     evento.preventDefault();
-    console.log(userInfo);
+    
     //Creamos una orden de compra en firestore
     let total = getTotalAmount();
     let order = {
@@ -35,35 +35,38 @@ const Checkout = () => {
     });
   };
   const capturarDatos = (evento) => {
-    // console.log(evento.target.value);
-    // console.log(evento.target.name);
+ 
     const { value, name } = evento.target;
 
     setUserInfo({ ...userInfo, [name]: value });
   };
   return (
     <div>
-      <form onSubmit={comprar}>
-        <input
-          type="text"
-          placeholder="nombre"
-          name="nombre"
-          onChange={capturarDatos}
-        />
-        <input
-          type="text"
-          placeholder="telefono"
-          name="telefono"
-          onChange={capturarDatos}
-        />
-        <input
-          type="text"
-          placeholder="email"
-          name="email"
-          onChange={capturarDatos}
-        />
-        <button>Comprar</button>
-      </form>
+      {ticket ? (
+        <p>Tu id de compra es: {ticket}</p>
+      ) : (
+        <form onSubmit={comprar}>
+          <input
+            type="text"
+            placeholder="nombre"
+            name="nombre"
+            onChange={capturarDatos}
+          />
+          <input
+            type="text"
+            placeholder="telefono"
+            name="telefono"
+            onChange={capturarDatos}
+          />
+          <input
+            type="text"
+            placeholder="email"
+            name="email"
+            onChange={capturarDatos}
+          />
+          <button>Comprar</button>
+        </form>
+      )}
     </div>
   );
 };
