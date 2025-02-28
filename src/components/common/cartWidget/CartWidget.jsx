@@ -2,7 +2,7 @@ import { IoMdCart } from "react-icons/io";
 import { Link } from "react-router";
 import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
-import "./CartWidget.css";
+import "./cartWidget.css";
 export const CartWidget = () => {
   const { getTotalItems } = useContext(CartContext);
   let total = getTotalItems();
